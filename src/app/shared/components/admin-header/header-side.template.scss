@@ -1,0 +1,30 @@
+app-header-side {
+    .see-as {
+        font-size: 12px;
+
+        .mat-icon-button {
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .mat-form-field-wrapper {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .mat-form-field-appearance-outline .mat-form-field-outline {
+            border-color: white;
+        }
+        mat-form-field {
+            .mat-hint,
+            input,
+            ::placeholder,
+            .mat-form-field-label {
+                border-color: white;
+            }
+        }
+
+        .mat-form-field-outline div {
+            border-color: white;
+        }
+    }
+}

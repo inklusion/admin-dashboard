@@ -1,0 +1,20 @@
+<div class="sidebar-panel">
+    <div id="scroll-area" class="navigation-hold" fxLayout="column">
+        <div class="sidebar-hold">
+
+            <!-- App Logo -->
+            <div class="branding clickable" [routerLink]="['/']">
+                <img [src]="configuration.logo_path_inverse_color" alt="logo" class="app-logo" width="">
+                <!-- <span class="app-logo-text">{{configuration.name}}</span> -->
+
+                <span style="margin: auto" *ngIf="layoutConf.sidebarStyle !== 'compact'"></span>
+                <div class="sidebar-compact-switch" [ngClass]="{active: layoutConf.sidebarCompactToggle}"
+                    (click)="toggleCollapse()" *ngIf="layoutConf.sidebarStyle !== 'compact'"><span></span></div>
+            </div>
+
+            <!-- Navigation -->
+            <app-sidenav [items]="menuItems" [hasIconMenu]="hasIconTypeMenuItem" [iconMenuTitle]="iconTypeMenuTitle">
+            </app-sidenav>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { forwardRef, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,7 +10,8 @@ import { ReCaptchaV3Service, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
 import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
 import { SharedComponentsModule } from './shared/components/shared-components';
-import { AuthenticationService } from './shared/services/authentication.service';
+import { ErrorInterceptor } from './shared/interceptors/errorInterceptor';
+import { AuthenticationDummyService } from './shared/services/authentication-dummy.service';
 import { SharedModule } from './shared/shared.module';
 import { SessionsModule } from './views/authentication/sessions.module';
 
@@ -44,15 +45,16 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   providers: [
-    AuthenticationService,
+    AuthenticationDummyService,
     { provide: AUTHENTICATION_CONFIG, useValue: authenticationConfig },
-    { provide: "AuthService", useExisting: forwardRef(() => AuthenticationService) },
+    { provide: "AuthService", useExisting: forwardRef(() => AuthenticationDummyService) },
     { provide: RECAPTCHA_V3_SITE_KEY, useValue: authenticationConfig.recaptcha.publicKey },
     { provide: "ReCaptchaV3Service", useExisting: forwardRef(() => ReCaptchaV3Service) },
     {
       provide: LOCALE_ID,
       useValue: 'pt-PT' // 'de-DE' for Germany, 'fr-FR' for France ...
     },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

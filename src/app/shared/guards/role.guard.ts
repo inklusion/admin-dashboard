@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router } from "@angular/router";
-import { AuthenticationService } from "../services/authentication.service";
+import { IAuthenticationService } from "authentication-inklusion";
 
 @Injectable()
 export class RoleGuard implements CanActivate {
   constructor(
     private router: Router,
-    public auth: AuthenticationService,
+    @Inject('AuthService') private authenticationService: IAuthenticationService,
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot) {
-    const currentUser = this.auth.currentUserValue;
+    const currentUser = this.authenticationService.currentUserValue;
 
     if (currentUser) {
       if (route.data &&

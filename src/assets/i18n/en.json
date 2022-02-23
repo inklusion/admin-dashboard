@@ -119,6 +119,8 @@
   "UNDER_DEVELOPMENT": "Under Development",
   "SESSION_EXPIRED": "Your session has expired. Please, login again.",
   "NO_DATA_TO_DISPLAY": "No Data to Display",
+  "WELCOME_TO_DASHBOARD": "Welcome to the dashboard of",
+  "WELCOME_TO_DASHBOARD_SUB_MESSAGE": "Use the menu on the left to browse the various sections ",
   "TOTAL": "total",
   "CREATE": "Create",
   "UPDATE": "Update",

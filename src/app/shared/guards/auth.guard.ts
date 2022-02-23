@@ -1,19 +1,19 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
-import { AuthenticationService } from "../services/authentication.service";
+import { IAuthenticationService } from "authentication-inklusion";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(
     private router: Router,
-    public auth: AuthenticationService,
+    @Inject('AuthService') private authenticationService: IAuthenticationService,
     private snack: MatSnackBar,
   ) { }
 
   canActivate(_: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const currentUser = this.auth.currentUserValue;
+    const currentUser = this.authenticationService.currentUserValue;
     if (currentUser) {
       return true;
     }

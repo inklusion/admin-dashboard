@@ -125,6 +125,8 @@
   "SESSION_EXPIRED": "A sua sessão expirou! Por favor, faça login novamente.",
   "UNDER_DEVELOPMENT": "Em Desenvolvimento",
   "NO_DATA_TO_DISPLAY": "Não há dados para exibir.",
+  "WELCOME_TO_DASHBOARD": "Bem-vindo ao dashboard do ",
+  "WELCOME_TO_DASHBOARD_SUB_MESSAGE": "Utilize o menu à esquerda para navegar nas várias secções",
   "TOTAL": "total",
   "CREATE": "Criar",
   "UPDATE": "Actualizar",

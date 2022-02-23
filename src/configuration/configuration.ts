@@ -59,6 +59,7 @@ export const configuration: IConfiguration = {
         showLabels: false,
         showPlaceholders: true,
         showRememberMe: false,
-        floatLabel: false,
+        floatLabel: true,
+        redirectPath: "/dashboard"
     }
 };

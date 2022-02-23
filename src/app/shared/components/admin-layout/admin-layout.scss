@@ -1,0 +1,78 @@
+app-admin-layout {
+  body,
+  .mat-button,
+  .mat-card,
+  .mat-icon-button {
+    font-family: "Roboto", sans-serif;
+  }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    max-height: 100vh;
+  }
+
+  .secundary {
+    color: #8a8a8a;
+    font-size: 13px;
+  }
+
+  .clickable,
+  .pointer {
+    cursor: pointer;
+  }
+
+  .mat-green {
+    &:not(.mat-button-disabled) {
+      color: green !important;
+    }
+  }
+
+  .mat-orange {
+    &:not(.mat-button-disabled) {
+      color: orange !important;
+    }
+  }
+
+  .mat-chip.mat-standard-chip {
+    &.mat-green {
+      background: green !important;
+      color: white !important;
+    }
+  }
+
+  /*#region Tables*/
+
+  .align-cell-middle {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .datatable-body-cell {
+    display: flex;
+    align-items: center;
+  }
+
+  .datatable-body-cell-label {
+    height: 100%;
+  }
+
+  datatable-selection {
+    display: flex;
+  }
+
+  /*#endregion Tables*/
+}
+
+*:not(input, textarea) {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

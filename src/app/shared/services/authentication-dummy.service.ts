@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthResponse, AuthUser, IAuthenticationService, isAuthResponse, LoginEndpointData, RegisterEndpointData, TokenRefreshEndpointData } from 'authentication-inklusion';
 import { configuration } from 'configuration/configuration';
 import { environment } from 'environments/environment';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { I18nLanguage, UserType } from '../helpers/enum';
 import { languageToIndex } from '../helpers/language';
@@ -12,13 +13,14 @@ import { UserService } from './user.service';
 
 
 @Injectable()
-export class AuthenticationService implements IAuthenticationService {
+export class AuthenticationDummyService implements IAuthenticationService {
     public currentUserSubject: BehaviorSubject<User>;
     private url = `${environment.apiURL}Authentication/`;
 
     constructor(
         private http: HttpClient,
         private userService: UserService,
+        private _snackBar: MatSnackBar,
     ) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     }
@@ -28,20 +30,29 @@ export class AuthenticationService implements IAuthenticationService {
     }
 
     login(loginData: LoginEndpointData): Observable<AuthResponse | AuthUser> {
-        const url = `${this.url}Login`;
-        return this.http.post<AuthResponse | AuthUser>(url, loginData)
-            .pipe(map(data => {
-                if (!isAuthResponse(data)) {
-                    // login successful if there's a jwt token in the response
-                    if (data && data.token) {
-                        // store user details and jwt token in local storage to keep user logged in between page refreshes
-                        this.updateLocalStorage(data);
-                        localStorage.setItem('platform', configuration.name);
-                    }
-                }
-
-                return data;
-            }));
+        if (loginData.email == "teste@teste.pt" && loginData.password == "teste") {
+            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            let user: AuthUser = {
+                id: "1234",
+                name: "Nuno Carapito",
+                email: "teste@teste.pt",
+                phoneNumber: "1234",
+                password: "teste",
+                token: "abcd",
+                refreshToken: "defg",
+                lastLogin: new Date(),
+                userType: UserType.ADMIN,
+                language: I18nLanguage.PT,
+                devices: [],
+                loginToken: "123456",
+                isActive: true
+            };
+            this.updateLocalStorage(user);
+            localStorage.setItem('platform', configuration.name);
+            return of(user);
+        }
+        this._snackBar.open("Invalid credentials");
+        return throwError(() => "Invalid credentials");
     }
 
 

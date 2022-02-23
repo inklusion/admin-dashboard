@@ -1,0 +1,13 @@
+app-sidenav {
+  .sidenav-hold .sidenav li ul.submenu.lvl2_link a {
+    padding: 0 16px;
+  }
+
+  .no_border {
+    border: none !important;
+  }
+
+  .dropdown .dropdown-icon-transparent {
+    border-color: transparent !important;
+  }
+}

@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthenticationService } from 'app/shared/services/authentication.service';
+import { IAuthenticationService } from 'authentication-inklusion';
 
 @Component({
   selector: 'app-login-template',
@@ -14,7 +14,7 @@ export class LoginTemplateComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private authenticationService: AuthenticationService,
+    @Inject('AuthService') private authenticationService: IAuthenticationService,
     private router: Router,
     private snack: MatSnackBar,
     private _translateService: TranslateService,

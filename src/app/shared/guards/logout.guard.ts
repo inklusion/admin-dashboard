@@ -1,17 +1,17 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { CanActivate } from "@angular/router";
-import { AuthenticationService } from "../services/authentication.service";
+import { IAuthenticationService } from "authentication-inklusion";
 
 @Injectable()
 export class LogoutGuard implements CanActivate {
 
   constructor(
-    public auth: AuthenticationService,
+    @Inject('AuthService') private authenticationService: IAuthenticationService,
   ) { }
 
   canActivate() {
-    if (this.auth.currentUserValue) {
-      this.auth.logout();
+    if (this.authenticationService.currentUserValue) {
+      this.authenticationService.logout();
     }
     return true;
   }
