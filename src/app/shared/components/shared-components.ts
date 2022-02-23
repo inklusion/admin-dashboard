@@ -4,6 +4,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
+import { SharedDirectivesModule } from "../directives/shared-directives.module";
 import { SharedMaterialModule } from "../shared-material.module";
 import { HeaderSideComponent } from "./admin-header/header-side.component";
 import { AdminLayoutComponent } from "./admin-layout/admin-layout.component";
@@ -31,6 +32,7 @@ const components = [
         SharedMaterialModule,
         TranslateModule,
         RouterModule,
+        SharedDirectivesModule,
         ReactiveFormsModule,
     ],
     declarations: components,

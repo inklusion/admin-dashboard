@@ -60,6 +60,7 @@ export const configuration: IConfiguration = {
         showPlaceholders: true,
         showRememberMe: false,
         floatLabel: true,
-        redirectPath: "/dashboard"
+        redirectPath: "/dashboard",
+        authenticationPath: "/"
     }
 };

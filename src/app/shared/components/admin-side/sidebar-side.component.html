@@ -3,8 +3,9 @@
         <div class="sidebar-hold">
 
             <!-- App Logo -->
-            <div class="branding clickable" [routerLink]="['/']">
-                <img [src]="configuration.logo_path_inverse_color" alt="logo" class="app-logo" width="">
+            <div class="branding clickable">
+                <img [src]="configuration.logo_path_inverse_color" alt="logo" class="app-logo" width=""
+                    [routerLink]="['/']">
                 <!-- <span class="app-logo-text">{{configuration.name}}</span> -->
 
                 <span style="margin: auto" *ngIf="layoutConf.sidebarStyle !== 'compact'"></span>

@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { IAuthenticationService } from 'authentication-inklusion';
+import { AuthenticationModuleConfig, AUTHENTICATION_CONFIG, IAuthenticationService } from 'authentication-inklusion';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AppLoaderService } from '../components/app-loader/app-loader.service';
@@ -13,6 +13,7 @@ import { AppLoaderService } from '../components/app-loader/app-loader.service';
 export class ErrorInterceptor implements HttpInterceptor {
     constructor(
         @Inject('AuthService') private authenticationService: IAuthenticationService,
+        @Inject(AUTHENTICATION_CONFIG) public config: AuthenticationModuleConfig,
         private snack: MatSnackBar,
         private _translateService: TranslateService,
         private router: Router,
@@ -27,7 +28,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 if (err.status === 401) { // auto logout if 401 response returned from api (token expired)
                     this.snack.open(this._translateService.instant("SESSION_EXPIRED"), 'OK', { duration: 4000 })
                     this.authenticationService.logout();
-                    this.router.navigate(['/authentication'], { queryParams: { return: this.router.url } });
+                    this.router.navigate([this.config.authenticationPath], { queryParams: { return: this.router.url } });
                     return throwError(() => error);
                 }
                 if (error) {

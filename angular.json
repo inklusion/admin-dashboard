@@ -142,5 +142,8 @@
       }
     }
   },
-  "defaultProject": "inklusion-demo"
+  "defaultProject": "inklusion-demo",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

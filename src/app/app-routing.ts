@@ -12,9 +12,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./views/authentication/sessions.module').then(m => m.SessionsModule)
-      }
-    ]
+        loadChildren: () => import('./views/authentication/sessions.module')
+          .then((m) => m.SessionsModule),
+      },
+    ],
   },
   {
     path: 'dashboard',
@@ -24,14 +25,15 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
-      }
-    ]
+        loadChildren: () => import('./views/dashboard/dashboard.module')
+          .then((m) => m.DashboardModule),
+      },
+    ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

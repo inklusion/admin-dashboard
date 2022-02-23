@@ -46,7 +46,7 @@ export class NavigationService {
         {
           name: this._translateService.instant("NAVBAR.DASHBOARD"),
           type: "link",
-          tooltip: "Dashboard",
+          tooltip: this._translateService.instant("NAVBAR.DASHBOARD"),
           icon: "dashboard",
           state: "dashboard",
           disabled: false
@@ -54,7 +54,7 @@ export class NavigationService {
         {
           name: this._translateService.instant("NAVBAR.PLATFORM_USERS"),
           type: "dropDown",
-          tooltip: "Platform Users List",
+          tooltip: this._translateService.instant("NAVBAR.PLATFORM_USERS"),
           icon: "supervised_user_circle",
           state: "dashboard/users",
           disabled: newUser?.userType != UserType.ADMIN,
@@ -82,7 +82,7 @@ export class NavigationService {
         {
           name: this._translateService.instant("NAVBAR.SHOP"),
           type: "dropDown",
-          tooltip: "Store",
+          tooltip: this._translateService.instant("NAVBAR.SHOP"),
           icon: "storefront",
           state: "dashboard/shop",
           sub: [
@@ -109,7 +109,7 @@ export class NavigationService {
         {
           name: this._translateService.instant("NAVBAR.PLATFORM"),
           type: "dropDown",
-          tooltip: "Platform",
+          tooltip: this._translateService.instant("NAVBAR.PLATFORM"),
           icon: "settings",
           state: "dashboard/platform",
           disabled: newUser?.userType != UserType.ADMIN,

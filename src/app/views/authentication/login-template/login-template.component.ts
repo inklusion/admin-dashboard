@@ -2,7 +2,7 @@ import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { IAuthenticationService } from 'authentication-inklusion';
+import { AuthenticationModuleConfig, AUTHENTICATION_CONFIG, IAuthenticationService } from 'authentication-inklusion';
 
 @Component({
   selector: 'app-login-template',
@@ -13,8 +13,9 @@ import { IAuthenticationService } from 'authentication-inklusion';
 export class LoginTemplateComponent {
 
   constructor(
-    private activatedRoute: ActivatedRoute,
     @Inject('AuthService') private authenticationService: IAuthenticationService,
+    @Inject(AUTHENTICATION_CONFIG) public config: AuthenticationModuleConfig,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private snack: MatSnackBar,
     private _translateService: TranslateService,
@@ -24,14 +25,14 @@ export class LoginTemplateComponent {
         this.authenticationService.activate(params.activate).subscribe({
           next: () => {
             this.snack.open(this._translateService.instant("USER_ACTIONS.ACCOUNT_ACTIVATED"), 'OK', { duration: 4000 })
-            this.router.navigateByUrl(`/authentication`);
+            this.router.navigateByUrl(this.config.authenticationPath);
           },
           complete: () => {
             this.snack.open(this._translateService.instant("USER_ACTIONS.ACCOUNT_ACTIVATED"), 'OK', { duration: 4000 })
-            this.router.navigateByUrl(`/authentication`);
+            this.router.navigateByUrl(this.config.authenticationPath);
           },
           error: () => {
-            this.router.navigateByUrl(`/authentication`);
+            this.router.navigateByUrl(this.config.authenticationPath);
           }
         })
       }

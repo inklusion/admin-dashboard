@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LogoutGuard } from 'app/shared/guards/logout.guard';
 import { AppLoaderService } from './components/app-loader/app-loader.service';
 import { SharedComponentsModule } from './components/shared-components';
+import { SharedDirectivesModule } from './directives/shared-directives.module';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
 import { NavigationService } from './services/navigation.service';
@@ -15,7 +16,8 @@ import { RoutePartsService } from './services/route-parts.service';
   imports: [
     CommonModule,
     TranslateModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    SharedDirectivesModule
   ],
   providers: [
     AuthGuard,
@@ -26,7 +28,8 @@ import { RoutePartsService } from './services/route-parts.service';
     NavigationService,
   ],
   exports: [
-    SharedComponentsModule
+    SharedComponentsModule,
+    SharedDirectivesModule
   ]
 })
 export class SharedModule { }

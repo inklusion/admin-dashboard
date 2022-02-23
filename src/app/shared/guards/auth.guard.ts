@@ -1,14 +1,15 @@
 import { Inject, Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
-import { IAuthenticationService } from "authentication-inklusion";
+import { AuthenticationModuleConfig, AUTHENTICATION_CONFIG, IAuthenticationService } from "authentication-inklusion";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(
-    private router: Router,
     @Inject('AuthService') private authenticationService: IAuthenticationService,
+    @Inject(AUTHENTICATION_CONFIG) public config: AuthenticationModuleConfig,
+    private router: Router,
     private snack: MatSnackBar,
   ) { }
 
@@ -20,7 +21,7 @@ export class AuthGuard implements CanActivate {
 
     this.snack.open('Please Login to Access this page', 'OK', { duration: 4000 });
 
-    this.router.navigate(['/authentication'], {
+    this.router.navigate([this.config.authenticationPath], {
       queryParams: {
         return: state.url
       }
