@@ -5,19 +5,30 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "buildCustomPackages": "ng build authentication-inklusion && npm pack ./dist/authentication-inklusion && npm install file:/./authentication-inklusion-13.0.0.tgz --force",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
+    "@angular/cdk": "^13.2.3",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
     "@angular/core": "~13.1.0",
+    "@angular/flex-layout": "^13.0.0-beta.38",
     "@angular/forms": "~13.1.0",
+    "@angular/material": "^13.2.3",
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@fingerprintjs/fingerprintjs": "^3.3.2",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
+    "@swimlane/ngx-datatable": "^20.0.0",
+    "authentication-inklusion": "file:authentication-inklusion-13.0.0.tgz",
+    "ng-recaptcha": "^9.0.0",
+    "ngx-scrollbar": "^9.0.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -34,6 +45,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^13.2.1",
     "typescript": "~4.5.2"
   }
 }

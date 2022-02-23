@@ -1,0 +1,10 @@
+.backdrop.active {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #191b1e;
+    z-index: 10000;
+    opacity: 0.8;
+}

@@ -1,0 +1,108 @@
+@charset "utf-8";
+/*
+      www.OnlineWebFonts.Com 
+      You must credit the author Copy this link on your web 
+      <div>Font made from <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>is licensed by CC BY 3.0</div>
+      OR
+      <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a>
+*/
+@font-face {
+	font-family: "prummo-icons";
+	src:url("onlinewebfonts.eot");
+	src:url("onlinewebfonts.eot?#iefix") format("embedded-opentype"),
+		url("onlinewebfonts.woff2") format("woff2"),
+		url("onlinewebfonts.woff") format("woff"),
+		url("onlinewebfonts.ttf") format("truetype"),
+		url("onlinewebfonts.svg#onlinewebfonts") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="i_"]:before, [class*=" i_"]:before{
+	font-family: "prummo-icons";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.i-bed:before {
+	content: "\e010";
+}
+.i-garage:before {
+	content: "\e011";
+}
+.i-bathtub-shower:before {
+	content: "\e012";
+}
+.i_elevator:before {
+	content: "\e013";
+}
+.i_swimming_pool:before {
+	content: "\e014";
+}
+.i_garden:before {
+	content: "\e015";
+}
+.i-area:before {
+	content: "\e016";
+}
+.i-tesla-energy:before {
+	content: "\e017";
+}
+.i-floor:before {
+	content: "\e018";
+}
+.i_terrace:before {
+	content: "\e019";
+}
+.i_antique_balcony:before {
+	content: "\e01a";
+}
+.i-construction-site:before {
+	content: "\e01b";
+}
+.i-apartments-buildings:before {
+	content: "\e01c";
+}
+.i_home:before {
+	content: "\e01d";
+}
+.i_warehouse:before {
+	content: "\e01e";
+}
+.i-garage_16:before {
+	content: "\e01f";
+}
+.i_office:before {
+	content: "\e020";
+}
+.i_mall:before {
+	content: "\e021";
+}
+.i-id:before {
+	content: "\e022";
+}
+.i-zeju-real:before {
+	content: "\e023";
+}
+.i-wallet:before {
+	content: "\e024";
+}
+.i-justice:before {
+	content: "\e025";
+}
+.i-home-23:before {
+	content: "\e026";
+}
+.i-repair:before {
+	content: "\e027";
+}
+.i-candidate:before {
+	content: "\e028";
+}
+.i-enter:before {
+	content: "\e029";
+}
+

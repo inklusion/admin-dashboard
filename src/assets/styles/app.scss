@@ -1,0 +1,58 @@
+// // Third pirty style files
+
+// //  star-rating styles (Used in Shop app)
+// @import "~css-star-rating/dist/css/star-rating.min.css";
+// // Data Table
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/material.css";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+
+// Main Variables File
+@import "scss/variables";
+
+@import "scss/mixins/mixins";
+@import "scss/colors";
+
+@import "scss/animations";
+
+// Open _themes.scss and remove unnecessary theme files
+@import "scss/themes/themes";
+
+@import "scss/utilities/utilities";
+@import "scss/components/components";
+@import "scss/palette";
+
+@import "scss/page-layouts";
+
+// Open _main.scss and keep files which are required for your current layout.
+@import "scss/main/main";
+
+// Open _views.scss and remove unnecessary view related files
+@import "scss/views/views";
+
+@media only screen and(min-width: 600px) {
+    .container {
+        max-width: 560px;
+    }
+}
+
+@media only screen and(min-width: 960px) {
+    .container {
+        max-width: 920px;
+    }
+}
+
+@media only screen and(min-width: 1280px) {
+    .container {
+        max-width: 1240px;
+    }
+}
+
+button {
+    cursor: pointer !important;
+    &:disabled {
+        cursor: not-allowed !important;
+    }
+}
+
+/* Importing Bootstrap SCSS file. */
