@@ -1,0 +1,41 @@
+<div class="top-bar">
+    <ng-container *ngIf="onFilterUpdate.observers.length; else space">
+        <mat-form-field class="margin-333" *ngIf="filterOptions?.length > 0">
+            <mat-label>{{'ACTIONS.FILTER_BY' | translate }}</mat-label>
+            <mat-select value="-1" (selectionChange)="filterByType($event)">
+                <mat-option value="-1">
+                    {{"FORM.ALL" | translate}}
+                </mat-option>
+                <ng-container *ngFor="let indvOption of filterOptions; let i = index">
+                    <mat-option value="{{i - 1 + 1}}">
+                        {{indvOption | translate}}
+                    </mat-option>
+                </ng-container>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="margin-333" style="width: 100%">
+            <mat-label>
+                {{'ACTIONS.FILTER_BY_TEXT' | translate}}
+                <ng-container *ngFor="let fieldName of fieldsToSearchBy; let i = index">
+                    <ng-container *ngIf="translationPrefix; else noPrefix">
+                        {{translationPrefix + "." + fieldName | translate}}
+                    </ng-container>
+                    <ng-template #noPrefix>{{fieldName | translate}}</ng-template>
+                    <ng-container *ngIf="i + 1 <  fieldsToSearchBy?.length">,
+                    </ng-container>
+                </ng-container>
+            </mat-label>
+            <input matInput name="search" value="" (keyup)="filterByText($event)" #inputFilter>
+        </mat-form-field>
+    </ng-container>
+    <ng-template #space>
+        <div fxFlex> </div>
+    </ng-template>
+
+    <div class="margin-333" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px" *ngIf="itemType != null">
+        <ng-content></ng-content>
+        <button mat-raised-button class="mb-05" color="primary" (click)="onAddButtonClick()" [disabled]="disableButton">
+            <ng-container *ngIf="isAddAction">{{"ACTIONS.ADD" | translate}}</ng-container> {{itemType}}
+        </button>
+    </div>
+</div>

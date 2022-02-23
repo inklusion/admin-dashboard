@@ -26,17 +26,43 @@
   "WELCOME_TO_DASHBOARD": "Welcome to the dashboard of",
   "WELCOME_TO_DASHBOARD_SUB_MESSAGE": "Use the menu on the left to browse the various sections ",
   "ADMIN": "Administrator",
-  "ACTIONS": {},
+  "ACTIONS": {
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "ACTIONS_LABEL": "Actions",
+    "OK": "Ok",
+    "CANCEL": "Cancel",
+    "FILTER_BY": "Filter By:",
+    "FILTER_BY_TEXT": "Filter by Text:",
+    "ADD": "Add"
+  },
   "USER_FORM": {
+    "NAME": "Name",
+    "EMAIL": "Email",
     "ERRORS": {}
   },
   "USER_ACTIONS": {
     "ACCOUNT_ACTIVATED": "Account Activated"
   },
   "ADMIN_FORM": {
-    "ERRORS": {}
+    "ERRORS": {
+      "LANGUAGE_REQUIRED": "Language is a required field",
+      "EMAIL_INVALID": "Email is a required field",
+      "NAME_REQUIRED": "Name is a required field",
+      "NAME_MINIMUM": "Name must have at least 6 characters"
+    },
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "DEFAULT_LANGUAGE": "Default Language"
   },
-  "ADMIN_ACTIONS": {},
+  "ADMIN_ACTIONS": {
+    "ADD_ADMIN": "Add Administrator",
+    "UPDATE_ADMIN": "Update Administrator",
+    "ADMIN_UPDATED": "Administrator updated successfully",
+    "DELETE_ADMIN": "Are you sure you want to delete administrator <b>{{userName}}</b>?",
+    "ADMIN_DELETED": "Administrator deleted sucessfully",
+    "ADMIN_ADDED": "Administrator added sucessfully"
+  },
   "COMERCIAL_FORM": {
     "ERRORS": {}
   },
@@ -150,7 +176,8 @@
   "META_INFO": {},
   "VIDEO_ACTIONS": {},
   "FORM": {
-    "ERRORS": {}
+    "ERRORS": {},
+    "ALL": "All"
   },
   "SUPPLIER": "Supplier",
   "SUPPLIER_ACTIONS": {},
@@ -161,5 +188,12 @@
   "QUEM_SOMOS": {},
   "DISTINCTIONS_ACTIONS": {},
   "DISTINCTION_ACTIONS": {},
-  "HOME_ACTIONS": {}
+  "HOME_ACTIONS": {},
+  "NO_DATA_TO_DISPLAY": "No data to Display",
+  "TOTAL": "Total",
+  "NAME": "Name",
+  "LAST_LOGIN": "Last Login",
+  "LOADING": "Loading",
+  "SAVE": "Save",
+  "CANCEL": "Cancel"
 }

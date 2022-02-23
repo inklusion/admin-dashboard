@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="mb-4" fxLayout="row" fxLayoutGap="10px">
+    <h1 class="mb-0" matDialogTitle>{{data.title}}</h1>
+    <span fxFlex></span>
+    <button mat-raised-button color="primary" [disabled]="form.invalid">{{"SAVE" | translate }}</button>
+    <button mat-button color="warn" type="button" (click)="dialogRef.close(false)">{{"CANCEL" | translate }}</button>
+  </div>
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="8px grid">
+    <div fxFlex="33">
+      <mat-form-field class="full-width">
+        <input matInput name="name" formControlName="name" placeholder="{{'ADMIN_FORM.NAME' | translate }}" required>
+        <mat-error *ngIf="form.controls['name'].hasError('required') && form.controls['name'].touched">
+          {{'ADMIN_FORM.ERRORS.NAME_REQUIRED' | translate }}</mat-error>
+        <mat-error *ngIf="form.controls['name'].hasError('minlength') && form.controls['name'].touched">
+          {{'ADMIN_FORM.ERRORS.NAME_MINIMUM' | translate }}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="33">
+      <mat-form-field class="full-width">
+        <input matInput type="email" name="email" formControlName="email"
+          placeholder="{{'ADMIN_FORM.EMAIL' | translate }}" required>
+        <mat-error *ngIf="form.controls['email'].hasError('invalidEmailAddress') && form.controls['email'].touched">
+          {{'ADMIN_FORM.ERRORS.EMAIL_INVALID' | translate }}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="33">
+      <mat-form-field class="full-width">
+        <mat-label>{{'ADMIN_FORM.DEFAULT_LANGUAGE' | translate }}</mat-label>
+        <mat-select name="language" formControlName="language" required>
+          <mat-option *ngFor="let languageKey of I18nLanguageKeys" [value]="I18nLanguage[languageKey]">{{languageKey}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['language'].hasError('required') && form.controls['language'].touched">
+          {{'ADMIN_FORM.ERRORS.LANGUAGE_REQUIRED' | translate }}</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

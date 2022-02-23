@@ -7,9 +7,8 @@ import { configuration } from 'configuration/configuration';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   animations: egretAnimations,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class DefaultDashboardComponent {
   configuration = configuration;
-
 }

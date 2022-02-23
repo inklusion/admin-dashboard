@@ -1,0 +1,46 @@
+<app-search-bar #inputFilter (addAction)="openPopUp(null)" (onFilterUpdate)="updateFilter($event)"
+  [itemType]="'ADMIN' | translate" [fieldsToSearchBy]="searchByFields" [translationPrefix]="translationPrefix"
+  [filterOptions]="[]">
+</app-search-bar>
+
+
+<mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+  <mat-card-content class="p-0">
+    <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="50"
+      [footerHeight]="50" [scrollbarH]="true" [limit]="12" [rowHeight]="72"
+      [messages]="{emptyMessage: 'NO_DATA_TO_DISPLAY' | translate, totalMessage: 'TOTAL' | translate}">
+      <ngx-datatable-column name="{{'NAME' | translate}}" prop="name" [sortable]="false" [resizeable]="false"
+        [draggable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <div class="align-cell-middle" fxLayout="column" fxLayoutAlign="start start">
+            <div>{{ row?.name }}</div>
+            <div class="secundary">{{ row?.email }}</div>
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="{{'LAST_LOGIN' | translate}}" prop="lastLogin" [sortable]="false" [draggable]="false"
+        [resizeable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <div class="align-cell-middle">
+            {{ row?.lastLogin | timeFormat }}
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="{{'ACTIONS.ACTIONS_LABEL' | translate}}" [sortable]="false" [draggable]="false"
+        [resizeable]="false" minWidth="80" maxWidth="100">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <app-table-actions>
+            <button tableAction mat-icon-button mat-sm-button matTooltip="{{'ACTIONS.EDIT' | translate}}" class="mr-1"
+              (click)="openPopUp(row)">
+              <mat-icon color="primary">edit</mat-icon>
+            </button>
+            <button tableAction [disabled]="currentUser.id == row.id || row?.isDefault"
+              matTooltip="{{'ACTIONS.DELETE' | translate}}" mat-icon-button mat-sm-button (click)="deleteItem(row)">
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
+          </app-table-actions>
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </mat-card-content>
+</mat-card>

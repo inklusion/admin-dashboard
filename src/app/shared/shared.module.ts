@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { LogoutGuard } from 'app/shared/guards/logout.guard';
+import { AppConfirmService } from './components/app-confirm/app-confirm.service';
 import { AppLoaderService } from './components/app-loader/app-loader.service';
 import { SharedComponentsModule } from './components/shared-components';
 import { SharedDirectivesModule } from './directives/shared-directives.module';
@@ -25,6 +26,7 @@ import { RoutePartsService } from './services/route-parts.service';
     LogoutGuard,
     RoutePartsService,
     AppLoaderService,
+    AppConfirmService,
     NavigationService,
   ],
   exports: [

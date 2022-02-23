@@ -8,10 +8,9 @@ import { AuthenticationModuleConfig, AUTHENTICATION_CONFIG, IAuthenticationServi
   selector: 'app-login-template',
   templateUrl: './login-template.component.html',
   styleUrls: ['./login-template.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class LoginTemplateComponent {
-
   constructor(
     @Inject('AuthService') private authenticationService: IAuthenticationService,
     @Inject(AUTHENTICATION_CONFIG) public config: AuthenticationModuleConfig,
@@ -20,21 +19,21 @@ export class LoginTemplateComponent {
     private snack: MatSnackBar,
     private _translateService: TranslateService,
   ) {
-    this.activatedRoute.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe((params) => {
       if (params.activate) {
         this.authenticationService.activate(params.activate).subscribe({
           next: () => {
-            this.snack.open(this._translateService.instant("USER_ACTIONS.ACCOUNT_ACTIVATED"), 'OK', { duration: 4000 })
+            this.snack.open(this._translateService.instant('USER_ACTIONS.ACCOUNT_ACTIVATED'), 'OK', { duration: 4000 });
             this.router.navigateByUrl(this.config.authenticationPath);
           },
           complete: () => {
-            this.snack.open(this._translateService.instant("USER_ACTIONS.ACCOUNT_ACTIVATED"), 'OK', { duration: 4000 })
+            this.snack.open(this._translateService.instant('USER_ACTIONS.ACCOUNT_ACTIVATED'), 'OK', { duration: 4000 });
             this.router.navigateByUrl(this.config.authenticationPath);
           },
           error: () => {
             this.router.navigateByUrl(this.config.authenticationPath);
-          }
-        })
+          },
+        });
       }
     });
   }

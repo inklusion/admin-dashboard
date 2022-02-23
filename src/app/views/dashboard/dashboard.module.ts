@@ -2,19 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { SharedMaterialModule } from 'app/shared/shared-material.module';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { SharedModule } from '../../shared/shared.module';
+import { AdminPopupComponent } from './admin/admin-popup/admin-popup.component';
+import { AdminsComponent } from './admin/admin.component';
 import { DashboardRoutes } from './dashboard.routing';
 import { DefaultDashboardComponent } from './home/dashboard.component';
 
@@ -25,14 +20,7 @@ import { DefaultDashboardComponent } from './home/dashboard.component';
         FormsModule,
         ReactiveFormsModule,
         FlexLayoutModule,
-        MatCardModule,
-        MatListModule,
-        MatGridListModule,
-        MatProgressBarModule,
-        MatIconModule,
-        MatMenuModule,
-        MatChipsModule,
-        MatButtonModule,
+        SharedMaterialModule,
         NgxDatatableModule,
         TranslateModule,
         SharedModule,
@@ -41,6 +29,8 @@ import { DefaultDashboardComponent } from './home/dashboard.component';
     ],
     declarations: [
         DefaultDashboardComponent,
+        AdminsComponent,
+        AdminPopupComponent,
     ],
     exports: []
 })
