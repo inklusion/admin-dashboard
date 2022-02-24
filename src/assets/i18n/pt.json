@@ -170,7 +170,7 @@
     "INPUT_YOUR_EMAIL": "Introduza o seu email",
     "INPUT_YOUR_PASSWORD": "Introduza a sua password",
     "INPUT_NEW_PASSWORD": "Introduza a nova password",
-    "INPUT_CONFIRM_NEW_PASSWORD": "Introduza novamente a nova password",
+    "INPUT_CONFIRM_YOUR_PASSWORD": "Introduza novamente a sua password",
     "INPUT_RECOVERY_CODE": "Introduza o código de recuperação",
     "INPUT_YOUR_FULL_NAME": "Introduza o seu nome completo"
   },

@@ -5,6 +5,7 @@ import { egretAnimations } from 'app/shared/animations/egret-animations';
 import { AppConfirmService } from 'app/shared/components/app-confirm/app-confirm.service';
 import { AppLoaderService } from 'app/shared/components/app-loader/app-loader.service';
 import { InklusionDialogExtendComponent } from 'app/shared/components/inklusionMatDialog/inklusion-mat-dialog';
+import { UserType } from 'app/shared/helpers/enum';
 import { filterRowsbyText } from 'app/shared/helpers/tablefilter.helper';
 import { Admin } from 'app/shared/models/admin';
 import { User } from 'app/shared/models/user';
@@ -54,12 +55,11 @@ export class AdminsComponent extends InklusionDialogExtendComponent implements O
         next: (data) => {
           this.items = data;
           this.allItems = data;
-          console.log(data);
         },
       });
 
     this.getItemSub.add(() => {
-      this.loader.close();
+      this.loader.closeAll();
     });
   }
 
@@ -84,22 +84,22 @@ export class AdminsComponent extends InklusionDialogExtendComponent implements O
     }
     this.loader.open();
     if (originalDataId == null) {
-      // this.authenticationService.invite({ ...modalData, userType: UserType.ADMIN })
-      //   .subscribe({
-      //     next: (data) => {
-      //       this.items = [...this.items, data];
-      //       this.snack.open(this._translateService.instant('ADMIN_ACTIONS.ADMIN_ADDED'), 'OK', { duration: 4000 });
-      //       closeModal();
-      //     },
-      //   }).add(() => {
-      //     this.loader.close();
-      //   });
-      // return;
+      this.userService.add({ ...modalData, userType: UserType.ADMIN })
+        .subscribe({
+          next: () => {
+            this.getItems();
+            this.snack.open(this._translateService.instant('ADMIN_ACTIONS.ADMIN_ADDED'), 'OK', { duration: 4000 });
+            closeModal();
+          },
+        }).add(() => {
+          this.loader.close();
+        });
+      return;
     }
     this.userService.update(originalDataId, modalData)
       .subscribe({
-        next: (data) => {
-          this.items = this.items.map((el) => el.id == data.id ? data : el);
+        next: () => {
+          this.getItems();
           this.snack.open(this._translateService.instant('ADMIN_ACTIONS.ADMIN_UPDATED'), 'OK', { duration: 4000 });
           closeModal();
         },
@@ -121,7 +121,7 @@ export class AdminsComponent extends InklusionDialogExtendComponent implements O
           this.userService.delete(row.id)
             .subscribe({
               next: () => {
-                this.items = this.items.filter((item) => item.id != row.id);
+                this.getItems();
                 this.snack.open(this._translateService.instant('ADMIN_ACTIONS.ADMIN_DELETED'), 'OK', { duration: 4000 });
               },
             }).add(() => {

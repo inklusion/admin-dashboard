@@ -169,10 +169,10 @@
     "LOGIN_SUCCESS": "Hello {{userName}}, Welcome to {{companyName}}",
     "INPUT_YOUR_EMAIL": "Enter your email",
     "INPUT_YOUR_PASSWORD": "Input your Password",
+    "INPUT_NEW_PASSWORD": "Enter the new password",
+    "INPUT_CONFIRM_YOUR_PASSWORD": "Re-enter your password",
     "INPUT_RECOVERY_CODE": "Enter recovery code",
-    "INPUT_YOUR_FULL_NAME": "Enter your full name",
-    "INPUT_CONFIRM_YOUR_PASSWORD": "Re-enter the new password",
-    "INPUT_NEW_PASSWORD": "Enter the new password"
+    "INPUT_YOUR_FULL_NAME": "Enter your full name"
   },
   "CLIENT_ACTIONS": {},
   "META_INFO": {},

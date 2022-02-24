@@ -47,15 +47,16 @@ export class UserService {
     delete(id: string) {
         return this.http.delete<boolean>(`${this.url}/${id}`);
     }
+
+    add(user: User) {
+        return this.http.post<User>(`${environment.apiURL}users/admin`, user);
+    }
 }
 
     // getById(id: string) {
     //     return this.http.get<User>(`${environment.apiURL}users/${id}`);
     // }
 
-    // add(user: User) {
-    //     return this.http.post<User>(`${environment.apiURL}users/register`, user);
-    // }
 
     // update(userId: string, user: User) {
     //     return this.http.put<User>(`${environment.apiURL}users/${userId}`, user);

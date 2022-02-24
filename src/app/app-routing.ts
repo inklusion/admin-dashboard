@@ -21,7 +21,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
-    data: { title: 'Dashboard' },
+    data: { title: 'Dashboard', breadcrumb: 'DASHBOARD' },
     children: [
       {
         path: '',

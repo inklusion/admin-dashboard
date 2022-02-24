@@ -24,16 +24,15 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(
             catchError(err => {
                 const error = err?.error?.message || err?.statusText;
-                console.log(error);
                 this.loader.close();
-                if (err.status === 401) { // auto logout if 401 response returned from api (token expired)
+                if (err?.status === 401) { // auto logout if 401 response returned from api (token expired)
                     this.snack.open(this._translateService.instant("SESSION_EXPIRED"), 'OK', { duration: 4000 })
                     this.authenticationService.logout();
                     this.router.navigate([this.config.authenticationPath], { queryParams: { return: this.router.url } });
                     return throwError(() => error);
                 }
                 if (error) {
-                    this.snack.open(this._translateService.instant("ERROR_OCURRED") + " \n " + error, 'OK', { duration: 4000 })
+                    this.snack.open(this._translateService.instant("ERROR_OCURRED") + " \n" + error, 'OK', { duration: 4000 })
                 } else {
                     this.snack.open(this._translateService.instant("ERROR_OCURRED"), 'OK', { duration: 4000 })
                 }

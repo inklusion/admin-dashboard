@@ -49,6 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     AuthenticationService,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     fakeBackendProvider,
     { provide: AUTHENTICATION_CONFIG, useValue: authenticationConfig },
     { provide: "AuthService", useExisting: forwardRef(() => AuthenticationService) },
@@ -58,7 +59,6 @@ export function createTranslateLoader(http: HttpClient) {
       provide: LOCALE_ID,
       useValue: 'pt-PT' // 'de-DE' for Germany, 'fr-FR' for France ...
     },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

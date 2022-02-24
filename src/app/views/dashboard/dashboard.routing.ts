@@ -12,6 +12,6 @@ export const DashboardRoutes: Routes = [
   {
     path: 'users/admin',
     component: AdminsComponent,
-    data: { title: 'Dashboard', breadcrumb: 'DASHBOARD' },
+    data: { title: 'Dashboard', breadcrumb: 'ADMIN' },
   },
 ];

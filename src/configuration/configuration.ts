@@ -6,7 +6,7 @@ export const configuration: IConfiguration = {
     long_name: "Inklusion",
     url: "https://www.inklusion.pt/",
     logo_path: "/assets/images/logos/logo.webp",
-    logo_path_inverse_color: "/assets/images/logos/logo.webp",
+    logo_path_inverse_color: "/assets/images/logos/logo_white.webp",
     auth_logo: "/assets/images/logos/logo.webp",
     phone_number: "+ 351 999 999 999",
     fax_number: "+ 351 999 999 999",

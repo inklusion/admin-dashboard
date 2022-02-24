@@ -10,12 +10,12 @@ import { RoutePartsService } from '../../../shared/services/route-parts.service'
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit, OnDestroy {
-  routeParts:any[];
+  routeParts: any[];
   routerEventSub: Subscription;
   // public isEnabled: boolean = true;
   constructor(
     private router: Router,
-    private routePartsService: RoutePartsService, 
+    private routePartsService: RoutePartsService,
     private activeRoute: ActivatedRoute,
   ) {
     this.routeParts = this.routePartsService.generateRouteParts(this.activeRoute.snapshot);
@@ -28,32 +28,32 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
         this.routeParts.reverse().map((item, i) => {
           item.breadcrumb = this.parseText(item);
           item.urlSegments.forEach((urlSegment, j) => {
-            if(j === 0)
+            if (j === 0)
               return item.url = `${urlSegment.path}`;
             item.url += `/${urlSegment.path}`
           });
-          if(i === 0) {
+          if (i === 0) {
             return item;
           }
           // prepend previous part to current part
           item.url = `${this.routeParts[i - 1].url}/${item.url}`;
           return item;
-        });        
+        });
       });
   }
 
   ngOnInit() {
   }
   ngOnDestroy() {
-    if(this.routerEventSub) {
+    if (this.routerEventSub) {
       this.routerEventSub.unsubscribe()
     }
   }
 
   parseText(part) {
-      if(!part.breadcrumb) {
-        return ''
-      }
+    if (!part.breadcrumb) {
+      return ''
+    }
     part.breadcrumb = part.breadcrumb.replace(/{{([^{}]*)}}/g, function (a, b) {
       var r = part.params[b];
       return typeof r === 'string' ? r : a;

@@ -37,10 +37,8 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // this.layoutConf = this.layout.layoutConf;
     this.layoutConfSub = this.layout.layoutConf$.subscribe((layoutConf) => {
       this.layoutConf = layoutConf;
-      // console.log(this.layoutConf);
 
       this.adminContainerClasses = this.updateAdminContainerClasses(this.layoutConf);
       this.cdr.markForCheck();
@@ -96,14 +94,12 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
   }
 
   sidebarMouseenter(_) {
-    // console.log(this.layoutConf);
     if (this.layoutConf.sidebarStyle === 'compact') {
       this.layout.publishLayoutChange({ sidebarStyle: 'full' });
     }
   }
 
   sidebarMouseleave(_) {
-    // console.log(this.layoutConf);
     if (
       this.layoutConf.sidebarStyle === 'full' &&
       this.layoutConf.sidebarCompactToggle
