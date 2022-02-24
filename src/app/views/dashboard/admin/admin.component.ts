@@ -54,6 +54,7 @@ export class AdminsComponent extends InklusionDialogExtendComponent implements O
         next: (data) => {
           this.items = data;
           this.allItems = data;
+          console.log(data);
         },
       });
 

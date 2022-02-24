@@ -80,7 +80,9 @@
     "ERRORS": {}
   },
   "CHECKOUT_FORM": {},
-  "PIPES": {},
+  "PIPES": {
+    "NOT_SET": "No Data"
+  },
   "TEAM_ACTIONS": {},
   "TEAM_FORM": {
     "ERRORS": {}

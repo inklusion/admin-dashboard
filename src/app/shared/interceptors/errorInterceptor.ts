@@ -24,6 +24,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(
             catchError(err => {
                 const error = err?.error?.message || err?.statusText;
+                console.log(error);
                 this.loader.close();
                 if (err.status === 401) { // auto logout if 401 response returned from api (token expired)
                     this.snack.open(this._translateService.instant("SESSION_EXPIRED"), 'OK', { duration: 4000 })

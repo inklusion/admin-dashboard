@@ -8,6 +8,7 @@ import { SharedComponentsModule } from './components/shared-components';
 import { SharedDirectivesModule } from './directives/shared-directives.module';
 import { AuthGuard } from './guards/auth.guard';
 import { RoleGuard } from './guards/role.guard';
+import { SharedPipesModule } from './pipes/shared-pipes.module';
 import { NavigationService } from './services/navigation.service';
 import { RoutePartsService } from './services/route-parts.service';
 
@@ -18,7 +19,8 @@ import { RoutePartsService } from './services/route-parts.service';
     CommonModule,
     TranslateModule,
     SharedComponentsModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    SharedPipesModule
   ],
   providers: [
     AuthGuard,
@@ -31,7 +33,8 @@ import { RoutePartsService } from './services/route-parts.service';
   ],
   exports: [
     SharedComponentsModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    SharedPipesModule
   ]
 })
 export class SharedModule { }
